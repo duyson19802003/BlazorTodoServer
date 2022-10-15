@@ -1,0 +1,22 @@
+﻿@page "/greeting"
+<h1>@title</h1>
+
+@code {
+    private string title = "Greeting from Blazor";
+    private string name;
+    private string greeting;
+
+    private void Wellcome()
+    {
+        if (!string.IsNullOrEmpty(name))
+            greeting = $"Hello {name}. Wellcome your first Blazor app!";
+    }
+}
+
+<div class="form-group">
+    <input type="text" placeholder="input your name" @bind="name" class="form-control" />
+</div>
+<div class="form-group">
+    <button @onclick="Wellcome" class="btn btn-primary">Wellcome!</button>
+</div>
+<h3>@greeting</h3>
